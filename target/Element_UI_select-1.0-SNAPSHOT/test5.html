@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：Element_UI_select
+  File name(文件名): test5
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/4/28
+  Time(创建时间)： 18:50
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <script src="js/vue.js"></script>
+    <script src="js/element-ui.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <el-select :multiple="true" :clearable="true" v-model="value" placeholder="请选择" @change="change">
+        <el-option v-for="item in options" :key="item.key" :lable="item.value" :value="item.value">
+        </el-option>
+    </el-select>
+
+    <el-select style="margin: 200px;" :multiple="true" :collapse-tags="true" :clearable="true" v-model="value"
+               placeholder="请选择"
+               @change="change">
+        <el-option v-for="item in options" :key="item.key" :lable="item.value" :value="item.value">
+        </el-option>
+    </el-select>
+</div>
+
+<script>
+    var app = new Vue(
+        {
+            el: "#app",
+            data: {
+                value: ["值2", "值4"],
+                options:
+                    [
+                        {
+                            key: '选项1',
+                            value: '值1'
+                        },
+                        {
+                            key: '选项2',
+                            value: '值2'
+                        },
+                        {
+                            key: '选项3',
+                            value: '值3'
+                        },
+                        {
+                            key: '选项4',
+                            value: '值4'
+                        },
+                        {
+                            key: '选项5',
+                            value: '值5'
+                        },
+                        {
+                            key: '选项6',
+                            value: '值6'
+                        },
+                        {
+                            key: '选项7',
+                            value: '值7'
+                        },
+                        {
+                            key: '选项8',
+                            value: '值8'
+                        },
+                        {
+                            key: '选项9',
+                            value: '值9'
+                        }
+                    ],
+            },
+            methods: {
+                change: function ()
+                {
+                    console.log(this.value)
+                }
+            },
+            mounted()
+            {
+
+            }
+        })
+</script>
+</body>
+</html>

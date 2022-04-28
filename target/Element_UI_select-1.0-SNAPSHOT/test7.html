@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：Element_UI_select
+  File name(文件名): test7
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/4/28
+  Time(创建时间)： 19:04
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <script src="js/vue.js"></script>
+    <script src="js/element-ui.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <el-select v-model="value1" placeholder="请选择" @change="change">
+        <el-option-group>
+            <el-option v-for="item in options1" :key="item.key" :lable="item.value" :value="item.value">
+            </el-option>
+        </el-option-group>
+        <el-option-group>
+            <el-option v-for="item in options2" :key="item.key" :lable="item.value" :value="item.value">
+            </el-option>
+        </el-option-group>
+    </el-select>
+
+    <el-select v-model="value2" placeholder="请选择" @change="change">
+        <el-option-group
+                v-for="group in options"
+                :key="group.label"
+                :label="group.label">
+            <el-option
+                    v-for="item in group.options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+            </el-option>
+        </el-option-group>
+    </el-select>
+
+</div>
+
+<script>
+    var app = new Vue(
+        {
+            el: "#app",
+            data: {
+                value1: [],
+                value2: [],
+                options1:
+                    [
+                        {
+                            key: '选项1',
+                            value: '值1'
+                        },
+                        {
+                            key: '选项2',
+                            value: '值2'
+                        },
+                        {
+                            key: '选项3',
+                            value: '值3'
+                        },
+                        {
+                            key: '选项4',
+                            value: '值4'
+                        },
+                        {
+                            key: '选项5',
+                            value: '值5'
+                        },
+                    ],
+                options2:
+                    [
+                        {
+                            key: '选项6',
+                            value: '值6'
+                        },
+                        {
+                            key: '选项7',
+                            value: '值7'
+                        },
+                        {
+                            key: '选项8',
+                            value: '值8'
+                        },
+                        {
+                            key: '选项9',
+                            value: '值9'
+                        }
+                    ],
+
+                options:
+                    [
+                        {
+                            label: '热门城市',
+                            options:
+                                [
+                                    {
+                                        value: 'Shanghai',
+                                        label: '上海'
+                                    },
+                                    {
+                                        value: 'Beijing',
+                                        label: '北京'
+                                    }
+                                ]
+                        },
+                        {
+                            label: '城市名',
+                            options:
+                                [
+                                    {
+                                        value: 'Chengdu',
+                                        label: '成都'
+                                    },
+                                    {
+                                        value: 'Shenzhen',
+                                        label: '深圳'
+                                    },
+                                    {
+                                        value: 'Guangzhou',
+                                        label: '广州'
+                                    },
+                                    {
+                                        value: 'Dalian',
+                                        label: '大连'
+                                    }
+                                ]
+                        }
+                    ],
+            },
+            methods: {
+                change: function ()
+                {
+                    console.log(this.value1)
+                    console.log(this.value2)
+                }
+            },
+            mounted()
+            {
+
+            }
+        })
+</script>
+</body>
+</html>
